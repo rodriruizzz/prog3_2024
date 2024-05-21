@@ -8,6 +8,7 @@
 <body>
     <?php
         print "Mi primera pagina";
+        print "prueba";
          
     ?>
 </body>
