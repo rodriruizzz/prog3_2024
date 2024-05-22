@@ -1,4 +1,5 @@
 <?
+//lo modifico lolo
     class Database{
         private $nombre="db_school";
         private $servidor="localhost";
