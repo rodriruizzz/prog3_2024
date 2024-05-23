@@ -2,7 +2,7 @@
 include("database.class.php")
 
 
-class Student¨{
+class Student{
     private $idStudent=null;
     private $dni=null;
     private $surname=null;
@@ -43,19 +43,52 @@ class Student¨{
     }
 
     public function editStudent(){
+                //crear la consulta
+        $sql= "UPDATE student SET dni=".$this->dni.", surname='".$this->surname."', name='".$this->name."'
+        , birthdate= '".$this->birthdate."', phone='".$this->phone."', address='".$this->address."'
+        , email='".$this->email."', password='".$this->password."'
+        , school='".$this->school."' WHERE idStudent=".$this->idStudent.;
+        
+        $this->conexion=new Database();
+        $result= $this->conexion->query($sql);
+        $this->conexion->close();
 
         
     }
 
     public function deleteStudent(){
-
+        $sql="DELETE FROM students WHERE idStudent=".$this->idStudent;
+        $this->conexion=new Database();
+        $result= $this->conexion->query($sql);
+        $this->conexion->close();    
         
     }
 
 
     public function getStudent(){
-
         
+    }
+        public function deleteStudent(){
+            $sql="SELECT * FROM students WHERE idStudent=".$this->idStudent;
+            $this->conexion=new Database();
+            $result= $this->conexion->query($sql);
+            $this->conexion->close();    
+            if ($result){
+                if ($row=$result->fetch__assoc()){
+                    $this->dni=$row("dni");
+                    $this->name=$row("name");
+                    $this->surname=$row("surname");
+                    $this->birthdate=$row("birthdate");
+                    $this->phone=$row("phone");
+                    $this->address=$row("address");
+                    $this->email=$row("email");
+                    $this->password=$row("password");
+                    $this->school=$row("school");
+                    return true 
+
+                }
+
+            }
     }
 
     public function getALLStudent(){
