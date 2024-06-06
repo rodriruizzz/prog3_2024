@@ -1,14 +1,14 @@
-<?
+<?php
     class Database{
         private $nombre="db_school";
         private $servidor="localhost";
         private $usuario="root";
         private $clave="";
-        private $conexion = null;
+        private $conexion;
 
         //Conetar la base de datos
         public function __construct(){
-            $this ->conexion= new mysqli($this->servidor ,$this->usuario ,$this->clave ,$this-> nombre);
+            $this->conexion= new mysqli($this->servidor ,$this->usuario ,$this->clave ,$this->nombre);
             if($this->conexion->connect_error){
                 print "Fallo la conexion".$this->conexion->connect_error;
             }

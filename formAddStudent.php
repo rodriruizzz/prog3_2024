@@ -10,8 +10,8 @@
         <input type="hidden" name="operation" value="add"/>
         <label>DNI:</label><input type="text" name="dni"><br>
         <label>Nombre:</label><input type="text" name="name"><br>
-        <label>Apellido:</label><input type="text" name="surnmane"><br>
-        <label>Direcci&oacute;n:</label><input type="text" name="adress"><br>
+        <label>Apellido:</label><input type="text" name="surname"><br>
+        <label>Direcci&oacute;n:</label><input type="text" name="address"><br>
         <label>Tel&eacute;:</label><input type="text" name="phone"><br>
         <label>E-mail:</label><input type="text" name="email"><br>
         <label>Fecha Nac:</label><input type="date" name="birthdate"><br>

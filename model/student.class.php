@@ -1,5 +1,5 @@
 <?php
-include("database.class.php")
+include("database.class.php");
 
 
 class Student{ 
@@ -29,21 +29,22 @@ class Student{
     //     $this->$school=$school;
     // }
 
-    public function addStuden(){
+    public function addStudent(){
     //crear la consulta
     $sql="INSERT INTO Students (dni, surname, name, birthdate, phone, address, email, password, school) VALUES
-    (".$this->$dni.",'".$this->$surname."','".$this->name."','".$this->birthdate."','".$this->phone."','".$this->address."','".$this->email."','".$this->password."', '".$this->school."')";
+    (".$this->dni.",'".$this->surname."','".$this->name."','".$this->birthdate."','".$this->phone."','".$this->address."','".$this->email."','".$this->password."', '".$this->school."')";
     $this->conexion=new Database();
     $result= $this->conexion->query($sql);
-    $this->conexion-close();
-
+    print $sql;
+    $this->conexion->close();
+        
     return $result;
 
     }
     public function deleteStuden(){
     
-        $sql="DELETE FROM Students WHERE idStudent=".$this->idStudent;
-    .$this->conexion=new Database();
+    $sql="DELETE FROM Students WHERE idStudent=".$this->idStudent;
+    $this->conexion=new Database();
     $result= $this->conexion->query($sql);
     $this->conexion-close();
 
@@ -63,7 +64,7 @@ class Student{
     public function getStuden(){
 
         $sql="SELECT * FROM Students WHERE idStudent=".$this->idStudent;
-    .$this->conexion=new Database();
+    $this->conexion=new Database();
     $result= $this->conexion->query($sql);
     $this->conexion-close();
 
@@ -87,7 +88,7 @@ class Student{
     public function getAllStuden(){
         
         $sql="SELECT * FROM Students" ;
-    .$this->conexion=new Database();
+    $this->conexion=new Database();
     $result= $this->conexion->query($sql);
     $this->conexion-close();
 
@@ -121,7 +122,7 @@ class Student{
 
     }
 
-    public function setDni ($dni) {
+    public function setDni($dni){
         $this->dni=$dni;
 
     }
@@ -131,7 +132,7 @@ class Student{
 
     }
 
-    public function setName ($name) {
+    public function setName($name){
         $this->name=$name;
 
     }
@@ -141,7 +142,7 @@ class Student{
 
     }
 
-    public function setSurname ($surname) {
+    public function setSurname($surname){
         $this->surname=$surname;
 
     }
@@ -151,7 +152,7 @@ class Student{
 
     }
 
-    public function setBirthdate ($birthdate) {
+    public function setBirthdate($birthdate){
         $this->birthdate=$birthdate;
 
     }
@@ -160,7 +161,7 @@ class Student{
 
     }
 
-    public function setPhone ($phone) {
+    public function setPhone($phone){
         $this->phone=$phone;
 
     }
@@ -169,7 +170,7 @@ class Student{
 
     }
 
-    public function setAddress ($address) {
+    public function setAddress($address){
         $this->address=$address;
 
     }
@@ -178,7 +179,7 @@ class Student{
 
     }
 
-    public function setEmail ($email) {
+    public function setEmail($email){
         $this->email=$email;
 
     }
@@ -187,7 +188,7 @@ class Student{
 
     }
 
-    public function setPassword ($password) {
+    public function setPassword($password){
         $this->password=$password;
 
     }
@@ -196,7 +197,7 @@ class Student{
 
     }
 
-    public function setSchool($school) {
+    public function setSchool($school){
         $this->school=$school;
 
     }

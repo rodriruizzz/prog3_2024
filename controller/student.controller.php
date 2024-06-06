@@ -14,6 +14,7 @@ if($operacion=="add"){
     $student->setBirthdate($_REQUEST["birthdate"]);
     $student->setPassword($_REQUEST["password"]);
     $student->setSchool($_REQUEST["school"]);
+    $student->addStudent();
 }else if($operation=="update"){
 
 }else if($operation=="delete"){
