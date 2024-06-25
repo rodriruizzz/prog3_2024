@@ -59,7 +59,7 @@ class Student{
              $this->conexion=new Database();
     $result= $this->conexion->query($sql);
     $this->conexion->closeDB();
-    
+    header("Location: http://localhost/escuela%202024/prog3_2024/panelstudent.php");
     return $result;
     }
     public function getStudent(){
@@ -87,14 +87,14 @@ class Student{
     $this->conexion->closeDB();
     return false;
     }
-    public function getAllStuden(){
+    public function getAllStudents(){
         
         $sql="SELECT * FROM Students" ;
     $this->conexion=new Database();
     $result= $this->conexion->query($sql);
-    $this->conexion->close();
+    $this->conexion->closeDB();
 
-    if($result){
+   /* if($result){
         if($row=$result->fetch_assoc()){
             $this->$dni=$row["dni"];
             $this->$surname=$row["surname"];
@@ -107,9 +107,15 @@ class Student{
             $this->$school=$row["school"];
         return true;
         }
-    }
-    return false;
-
+    } return false;
+*/
+$students = [];
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $students[] = $row;
+            }
+        }
+        return $students;
     }
     //geeter y Setter
     public function getIdStudent(){

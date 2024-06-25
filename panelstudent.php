@@ -1,9 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Student</title>
+    <title>Panel de Estudiantes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .action-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .action-button.delete {
+            background-color: #dc3545;
+        }
+    </style>
+    <script>
+        function editStudent(id) {
+            window.location.href = `http://localhost/escuela%202024/prog3_2024/formEditStudent.php?idStudent=${id}`;
+        }
+
+        function deleteStudent(id) {
+            // Aquí puedes agregar la lógica para eliminar al estudiante
+            alert('Eliminar estudiante con ID: ' + id);
+        }
+    </script>
 </head>
 <body>
     <h1>Panel de Estudiantes</h1>
@@ -15,35 +65,34 @@
                 <th>Nombre</th>
                 <th>DNI</th>
                 <th>Fecha Nac.</th>
-                <th>Tel&eacute;fono</th>
+                <th>Teléfono</th>
                 <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            include ("model/student.class.php");
-            $student= new Student();
-            $allStudents= $student->getAllStudents();
-            if($allStudents){
-                foreach($allStudents as $data){
-                    print "<tr>";
-                    print "<td>".$data["idStudent"]."</td";
-                    print "<td>".$data["surname"]."</td";
-                    print "<td>".$data["name"]."</td";
-                    print "<td>".$data["dni"]."</td";
-                    print "<td>".$data["birthdate"]."</td";
-                    print "<td>".$data["phone"]."</td";
-                    print "<td>"los dos botones"</td";
-                }              
-            }else{
-                print "No existen estudiantes cargados";
+            include("model/student.class.php");
+            $student = new Student();
+            $allStudents = $student->getAllStudents();
+            if ($allStudents) {
+                foreach ($allStudents as $data) {
+                    echo "<tr>";
+                    echo "<td>" . $data["idStudent"] . "</td>";
+                    echo "<td>" . $data["surname"] . "</td>";
+                    echo "<td>" . $data["name"] . "</td>";
+                    echo "<td>" . $data["dni"] . "</td>";
+                    echo "<td>" . $data["birthdate"] . "</td>";
+                    echo "<td>" . $data["phone"] . "</td>";
+                    echo "<td>";
+                    echo "<button class='action-button' onclick='editStudent(" . $data["idStudent"] . ")'>Edit</button>";
+                    echo "<button class='action-button delete' onclick='deleteStudent(" . $data["idStudent"] . ")'>Delete</button>";
+                    echo "</td>";
+                    echo "</tr>";
+                }
+            } else {
+                echo "<tr><td colspan='7'>No existen estudiantes cargados</td></tr>";
             }
-
-
-
             ?>
-
-
         </tbody>
     </table>
 </body>
