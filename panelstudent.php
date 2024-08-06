@@ -44,14 +44,24 @@
             background-color: #dc3545;
         }
     </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         function editStudent(id) {
             window.location.href = `http://localhost/escuela%202024/prog3_2024/formEditStudent.php?idStudent=${id}`;
         }
 
         function deleteStudent(id) {
-            // Aquí puedes agregar la lógica para eliminar al estudiante
             alert('Eliminar estudiante con ID: ' + id);
+            $.ajax({
+                    url: '', // Cambia esta URL por la que necesites
+                    method: 'GET',
+                    success: function(response) {
+                        $('#result').html(JSON.stringify(response));
+                    },
+                    error: function(error) {
+                        console.error('Error en la solicitud AJAX:', error);
+                    }
+                });
         }
     </script>
 </head>

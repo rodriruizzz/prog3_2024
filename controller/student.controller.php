@@ -30,7 +30,9 @@ if($operacion=="add"){
     $student->setSchool($_REQUEST["school"]);
     $student->editStudent();
 }else if($operacion=="delete"){
-    
+    $student->getIdStudent($_REQUEST["id"]);
+    $student->deleteStudent();
+    echo $result
 }
 
 ?>
