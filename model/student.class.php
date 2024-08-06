@@ -46,8 +46,7 @@ class Student{
     $sql="DELETE FROM Students WHERE idStudent=".$this->idStudent;
     $this->conexion=new Database();
     $result= $this->conexion->query($sql);
-    $this->conexion->close();
-
+    $this->conexion->closeDB();
     return $result;
 
     }
@@ -87,14 +86,14 @@ class Student{
     $this->conexion->closeDB();
     return false;
     }
-    public function getAllStuden(){
+    public function getAllStudents(){
         
         $sql="SELECT * FROM Students" ;
     $this->conexion=new Database();
     $result= $this->conexion->query($sql);
-    $this->conexion->close();
+    $this->conexion->closeDB();
 
-    if($result){
+/*    if($result){
         if($row=$result->fetch_assoc()){
             $this->$dni=$row["dni"];
             $this->$surname=$row["surname"];
@@ -109,8 +108,15 @@ class Student{
         }
     }
     return false;
-
-    }
+*/
+$students = [];
+        if ($result) {
+            while ($row = $result->fetch_assoc()) {
+                $students[] = $row;
+            }
+        }
+        return $students; 
+}
     //geeter y Setter
     public function getIdStudent(){
         return $this->idStudent;

@@ -1,8 +1,7 @@
 <?php
 include("../model/student.class.php");
 $operacion=$_REQUEST["operation"];
-$id=$_REQUEST["idStudent"];
-echo $id;
+
 $student = new Student();
 
 //echo $operacion;
@@ -30,7 +29,10 @@ if($operacion=="add"){
     $student->setSchool($_REQUEST["school"]);
     $student->editStudent();
 }else if($operacion=="delete"){
-    
+  $student->setIdStudent($_REQUEST["id"]);
+  $result=$student->deleteStudent();
+  echo $result;
+
 }
 
 ?>
