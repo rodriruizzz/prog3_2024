@@ -3,40 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel de Estudiantes</title>
-    <!-- CSS -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css"/>
-<!-- Default theme -->
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css"/>
-<!--    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        th, td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-    </style> -->
+    <title>Panel Student</title>
 </head>
 <body>
     <h1>Panel de Estudiantes</h1>
@@ -53,7 +20,30 @@
             </tr>
         </thead>
         <tbody>
-        <?php include("tableStudent.php"); ?>
+            <?php
+            include ("model/student.class.php");
+            $student= new Student();
+            $allStudents= $student->getAllStudents();
+            if($allStudents){
+                foreach($allStudents as $data){
+                    print "<tr>";
+                    print "<td>".$data["idStudent"]."</td";
+                    print "<td>".$data["surname"]."</td";
+                    print "<td>".$data["name"]."</td";
+                    print "<td>".$data["dni"]."</td";
+                    print "<td>".$data["birthdate"]."</td";
+                    print "<td>".$data["phone"]."</td";
+                    print "<td>"los dos botones"</td";
+                }              
+            }else{
+                print "No existen estudiantes cargados";
+            }
+
+
+
+            ?>
+
+
         </tbody>
     </table>
 </body>
