@@ -3,7 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Student</title>
+    <title>Panel de Estudiantes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .action-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            text-align: center;
+        }
+        .action-button.delete {
+            background-color: #dc3545;
+        }
+    </style>
+    <script>
+        function editStudent(id) {
+            window.location.href = `http://localhost/escuela%202024/prog3_2024/formEditStudent.php?idStudent=${id}`;
+        }
+
+        function deleteStudent(id) {
+            // Aquí puedes agregar la lógica para eliminar al estudiante
+            alert('Eliminar estudiante con ID: ' + id);
+        }
+    </script>
 </head>
 <body>
     <h1>Panel de Estudiantes</h1>

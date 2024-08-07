@@ -29,10 +29,16 @@ if($operacion=="add"){
     $student->setSchool($_REQUEST["school"]);
     $student->editStudent();
 }else if($operacion=="delete"){
+<<<<<<< HEAD
   $student->setIdStudent($_REQUEST["id"]);
   $result=$student->deleteStudent();
   echo $result;
 
+=======
+    $student->getIdStudent($_REQUEST["id"]);
+    $student->deleteStudent();
+    echo $result
+>>>>>>> 79715efc43307f5ac493a20b0e6689748278f46a
 }
 
 ?>
